@@ -50,8 +50,15 @@ sudo systemctl enable --now postgresql
 Create the database and user:
 
 ```bash
-sudo -u postgres psql -c "CREATE USER sasquatch WITH PASSWORD 'change-this-password';"
-sudo -u postgres psql -c "CREATE DATABASE sasquatch_platform OWNER sasquatch;"
+sudo -u postgres psql
+```
+
+Then run these commands inside `psql`:
+
+```sql
+CREATE USER sasquatch WITH PASSWORD 'change-this-password';
+CREATE DATABASE sasquatch_platform OWNER sasquatch;
+\q
 ```
 
 ## 3. Create The App User And Directory
@@ -91,6 +98,12 @@ NEXTAUTH_URL="https://your-domain.com"
 NEXTAUTH_SECRET="use-a-long-random-secret"
 AUTH_TRUST_HOST="true"
 ```
+
+Important:
+
+- If your PostgreSQL password contains special URL characters like `!`, `@`, `:`, `/`, or `#`, you must URL-encode that password inside `DATABASE_URL`.
+- Example: if your password is `Julio292005!`, your `DATABASE_URL` password segment should be `Julio292005%21`.
+- To avoid encoding mistakes, it is often easier to use a long password made of letters and numbers only.
 
 If you add Stripe, S3, or SendGrid later, populate those values too.
 
