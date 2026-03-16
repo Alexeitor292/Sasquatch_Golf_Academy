@@ -1,0 +1,19 @@
+[Unit]
+Description=Sasquatch Platform Next.js App
+After=network.target
+
+[Service]
+Type=simple
+User=sasquatch
+Group=sasquatch
+WorkingDirectory=/opt/sasquatch-platform
+Environment=NODE_ENV=production
+Environment=HOSTNAME=127.0.0.1
+Environment=PORT=3000
+EnvironmentFile=/opt/sasquatch-platform/.env
+ExecStart=/usr/bin/node /opt/sasquatch-platform/.next/standalone/server.js
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

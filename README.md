@@ -25,6 +25,7 @@ The goal is to evolve Sasquatch Golf Academy into a full platform, not just a ma
 - Structured section template system for a future drag-and-drop builder
 
 See [docs/platform-architecture.md](docs/platform-architecture.md) for the fuller product and backend roadmap.
+For Ubuntu self-hosting on Proxmox, see [docs/deploy-proxmox-ubuntu.md](docs/deploy-proxmox-ubuntu.md).
 
 ## Run It
 
