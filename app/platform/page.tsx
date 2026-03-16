@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { integrationChecklist } from "@/lib/mock-data";
 
-export default function HomePage() {
+export default function PlatformPage() {
   return (
     <>
       <section className="marketing-hero">
@@ -64,4 +64,3 @@ export default function HomePage() {
     </>
   );
 }
-
